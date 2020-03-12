@@ -28,3 +28,22 @@ BigFLICA_cpu.BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim)
 3. output_dir: the absolute directory to store all BigFLICA results
 4. migp_dim: Number of components to extract in MIGP step (migp_dim > nlat).
 5. dicl_dim: Number of components to extract in the Dictionary learning step
+
+
+## Outputs
+In the specified output directory,
+1. subj_course.npy is the H matrix in the paper, which is of the size subject-by-FLICA_component, this is the matrix used to correlate with behaviour variables.
+2. flica_mod*_Z.npy is the Z-score normalized spatial maps of one modality, which is of the size voxel-by-FLICA_component.
+3. mod_contribution.npy is the contribution of each modality to each FLICA component, which is of the size modality-by-FLICA_component. Within each FLICA component, the contribution of different modalities can be sorted based on these numbers.
+
+
+## Things will be added in the future release:
+1. Functions support nifti, cifti and freesurfer inputs.
+2. Plotting the spatial maps.
+
+
+
+
+
+
+
