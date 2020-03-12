@@ -8,9 +8,9 @@ Python 2.7.x, spams (for dictionary learning), numpy, scipy, pylab, copy.
 
 ## Usage
 
-1. Put this module in a position where your python can find. Then, some example code are
+1. Put this module in a position where your python can find it. Then, some example code are
 ```
-from BigFLICA import BigFLICA_cpu
+import BigFLICA_cpu
 data_loc = ['/*/modality1.npy',
            '/*/modality2.npy']
 output_dir = '/path/for/output'
