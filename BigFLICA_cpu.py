@@ -1,6 +1,3 @@
-
-
-
 import os 
 import numpy as np
 import BigFLICA.FLICA_cpu as flica
@@ -99,9 +96,12 @@ def BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim):
     
     M=np.load(output_dir+'/flica_result.npz')  
     H = M['H'][new_order,:].T
-
+    
+    
     subj_course = np.dot(U,H)
     np.save(output_dir + '/subj_course.npy', subj_course)
+    contri = M['H_PCs'][:,new_order]
+    np.save(output_dir + '/mod_contribution.npy', contri[0:nmod,:])
 
     print('Z-stat spatial maps...')
     for i in range(0,nmod):
