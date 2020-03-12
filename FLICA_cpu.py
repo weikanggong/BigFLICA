@@ -1,10 +1,4 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jan 26 11:17:23 2019
 
-@author: wgong
-"""
 
 import numpy as np
 import copy
@@ -992,9 +986,9 @@ def flica_iterate(Y,opts,Priors, Posteriors, Constants):
          output_dir=opts['output_dir']
          iters_to_save=np.array(range(25,opts['maxits']+1,25));
          if sum(its==iters_to_save)==1:
-             if os.path.exists(os.path.join(output_dir,'iter'+str(its)) )==0:
-                 os.mkdir( os.path.join(output_dir,'iter'+str(its))  )
-             np.savez(os.path.join(output_dir,'iter'+str(its),'flica_result.npz'),DD=FLICA_OUTPUT_DICT['DD'],F=FLICA_OUTPUT_DICT['F'],
+             #if os.path.exists(os.path.join(output_dir,'iter'+str(its)) )==0:
+                 #os.mkdir( os.path.join(output_dir,'iter'+str(its))  )
+             np.savez(os.path.join(output_dir,'flica_result.npz'),DD=FLICA_OUTPUT_DICT['DD'],F=FLICA_OUTPUT_DICT['F'],
                       F_history=FLICA_OUTPUT_DICT['F_history'],
                       H=FLICA_OUTPUT_DICT['H'],H_PCs=FLICA_OUTPUT_DICT['H_PCs'],
                       W=FLICA_OUTPUT_DICT['W'],beta=FLICA_OUTPUT_DICT['beta']
@@ -1003,9 +997,9 @@ def flica_iterate(Y,opts,Priors, Posteriors, Constants):
                       XtDX=Posteriors['XtDX'],WtW=Posteriors['WtW'],K=Constants['K'],R=Constants['R'],L=Constants['L'])
              
              for ii in range(0,len(Posteriors['X'])):
-                 np.save(os.path.join(output_dir,'iter'+str(its),'flica_X'+str(ii+1)+'.npy'),Posteriors['X'][ii])
+                 np.save(os.path.join(output_dir,'flica_X'+str(ii+1)+'.npy'),Posteriors['X'][ii])
              
-             os.system('rm -r '+os.path.join(output_dir,'iter'+str(its-25)))
+             #os.system('rm -r '+os.path.join(output_dir,'iter'+str(its-25)))
             
             
     return FLICA_OUTPUT_DICT # the old M 

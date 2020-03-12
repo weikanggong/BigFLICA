@@ -8,6 +8,9 @@ Created on Mon Dec  3 11:35:34 2018
 
 import numpy as np
 from scipy import linalg
+from pylab import tile
+import os 
+import copy
 
 def nets_zscore(x):
     # x : a nsubject * nfeature numpy matrix
@@ -217,7 +220,7 @@ def sKPCR_regression(X,Y,cov):
     #degree of freedom
     df=design.shape[0]-design.shape[1]
     #
-    ss=np.linalg.inv(np.dot(np.transpose(design),design))
+    ss=np.linalg.pinv(np.dot(np.transpose(design),design))
 
     beta=np.dot(np.dot(ss,np.transpose(design)),Y)
 
@@ -247,7 +250,42 @@ def BWAS_deconf(X,Y):
     return Res
 
 
-
+def flica_reorder(output_dir,nmod):
+        
+    data_dir=os.path.join(output_dir,'')   
+    X=[]
+    for i in range(0,nmod):
+        X.append(np.load(data_dir+'/flica_X'+str(i+1)+'.npy'))
+    M=np.load(data_dir+'/flica_result.npz')    
+       
+    
+    K=len(X)
+    R=M['H'].shape[1]
+    for k in range(0,K):
+        #M.X{k} * diag(M.W{k}.*sqrt( M.H.^2 * makesize(M.lambda{k},[R 1]) * M.DD(k))')]; %#ok<AGROW>
+        if np.matrix(M['lambda1'][k]).shape[0]==R:
+            tmp=np.dot(np.square(M['H']),M['lambda1'][k])
+        else:
+            tmp=np.dot(np.square(M['H']),tile(M['lambda1'][k],[R,1]))
+            tmp2=np.sqrt(np.dot(tmp,M['DD'][k]))
+            tmp3=np.diag(np.multiply(M['W'][k],tmp2))
+            tmp4=np.dot(X[k],np.diag(tmp3))
+        if k==0:
+            Xcat=copy.deepcopy(tmp4)
+        else:     
+            Xcat=np.concatenate((Xcat,tmp4))
+            
+    weight = np.sum(np.square(Xcat),0)      
+    order=np.argsort(weight)
+    order=order[::-1]
+    weight=weight[order]
+    
+    np.save(data_dir+'new_order.npy',order)
+    np.save(data_dir+'new_weight.npy',weight)    
+        
+        
+    return order
+        
 
 
 
