@@ -5,15 +5,17 @@ Gong, Weikang, Christian F. Beckmann, and Stephen M. Smith. "Phenotype Discovery
 
 ## Requirements
 Python 2.7.x, spams (for dictionary learning), numpy, scipy, pylab, copy.
+System tested: Linux 
 
 ## Usage
+The main function to use is the BigFLICA function in the script BigFLICA_cpu.py. Put this module in a position where your python can find it (e.g., /home/weikanggong). Then, prepare the data as .npy files (assume that we have two modalities, and they are stored as /home/weikanggong/mod1.npy, /home/weikanggong/mod2.npy). Finally, suppose the output directory is /home/weikanggong/bigflica_output. 
 
-1. Put this module in a position where your python can find it. Then, some example code are
+Example code is something like the following:
 ```
 import BigFLICA_cpu
-data_loc = ['/*/modality1.npy',
-           '/*/modality2.npy']
-output_dir = '/path/for/output'
+data_loc = ['/home/weikanggong/mod1.npy',
+           ' /home/weikanggong/mod2.npy']
+output_dir = '/home/weikanggong/bigflica_output/'
 nlat = 10
 migp_dim =100
 dicl_dim =500
