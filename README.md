@@ -2,6 +2,7 @@
 
 ## Python code for BigFLICA
 Gong, Weikang, Christian F. Beckmann, and Stephen M. Smith. "Phenotype Discovery from Population Brain Imaging." Medical Image Analysis (2021).
+https://www.sciencedirect.com/science/article/pii/S1361841521000967
 
 ## Requirements
 Python 2.7.x, spams (for dictionary learning), numpy, scipy, pylab, copy.
