@@ -19,8 +19,9 @@ output_dir = '/home/weikanggong/bigflica_output/'
 nlat = 10
 migp_dim =100
 dicl_dim =500
+ncore = 1
 
-BigFLICA_cpu.BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim)
+BigFLICA_cpu.BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim, ncore)
 
 ```
 1. data_loc: a list whose length equals to the number of modalities, each element is the absolute directory of data
@@ -30,7 +31,7 @@ BigFLICA_cpu.BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim)
 3. output_dir: the absolute directory to store all BigFLICA results
 4. migp_dim: Number of components to extract in MIGP step (migp_dim > nlat).
 5. dicl_dim: Number of components to extract in the Dictionary learning step
-
+6. ncore: Number of CPUs to perform dictionary learning on each modality.
 
 ## Outputs
 In the specified output directory,
