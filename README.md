@@ -5,7 +5,7 @@ Gong, Weikang, Christian F. Beckmann, and Stephen M. Smith. "Phenotype Discovery
 https://www.sciencedirect.com/science/article/pii/S1361841521000967
 
 ## Requirements
-Python 2.7.x, spams (for dictionary learning), numpy, scipy, pylab, copy.
+Python 2.7.x (recommends anaconda), spams (for dictionary learning), numpy, scipy, copy.
 System tested: Linux 
 
 ## Usage
