@@ -4,6 +4,8 @@ import BigFLICA.FLICA_cpu as flica
 import BigFLICA.utils as utils
 import spams 
 import scipy
+from joblib import Parallel, delayed
+import multiprocessing
 
  def rms(IN, dim, options):
     if dim==[]:  #I use only this case USED FLICA LOAD!!
