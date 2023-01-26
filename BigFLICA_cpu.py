@@ -7,7 +7,7 @@ import scipy
 from joblib import Parallel, delayed
 import multiprocessing
 
- def rms(IN, dim, options):
+def rms(IN, dim, options):
     if dim==[]:  #I use only this case USED FLICA LOAD!!
         out = np.sqrt(np.sum(np.square(IN))/IN.size)# dumm = alb_various.rms(Y[k],0,[])
     else:
