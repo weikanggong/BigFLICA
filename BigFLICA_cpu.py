@@ -39,7 +39,7 @@ def BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim, ncore = 1):
         cov_mat = np.zeros((nsubj,nsubj))
         for i in range(0,nmod):
                 
-            print('Loading data of Modal '+str(i+1))        
+            print(('Loading data of Modal '+str(i+1)))        
             Data = np.load(data_loc[i])#[select_index,:]
             ind=np.sum(Data,axis=1)!=0        
             Data[ind,:]=utils.nets_zscore(Data[ind,:])
@@ -47,7 +47,7 @@ def BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim, ncore = 1):
             #Data = utils.nets_zscore(Data)    
             print('Computing covariance matrix...')
             cov_mat = cov_mat + np.dot(Data,Data.T)/Data.shape[1]
-    
+        print('Done...')
         
         if nsubj<50000:
             dd,uu=scipy.linalg.eigh(cov_mat,eigvals=(nsubj-migp_dim,nsubj-1))
@@ -66,7 +66,7 @@ def BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim, ncore = 1):
         
     if os.path.exists(output_dir+'/MIGP' + str(migp_dim) + '/PCAdata_mod'+('%02d' % (nmod))+'.npy') == 0:   
         for i in range(0,nmod):        
-            print('Loading data of Modal '+str(i+1))        
+            print(('Loading data of Modal '+str(i+1)))        
             Data=np.load(data_loc[i])#[select_index,:] 
             ind=np.sum(Data,axis=1)!=0        
             Data[ind,:]=utils.nets_zscore(Data[ind,:])
@@ -99,8 +99,8 @@ def BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim, ncore = 1):
         return D   
         
     Data = Parallel(n_jobs=ncore)(delayed(DicL)(i,output_dir,dicl_dim,migp_dim) for i in range(0,nmod))
-    print(len(Data))
-    print(Data[0].shape)
+    print((len(Data)))
+    print((Data[0].shape))
     
     print('DicL done ...')
     

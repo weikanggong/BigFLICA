@@ -21,7 +21,7 @@ def nets_zscore(x):
     
     if sum(index)>0:
         stds[index]=0.1
-        print('Warning: '+str(sum(index))+' of the features are all zero or constants')
+        print(('Warning: '+str(sum(index))+' of the features are all zero or constants'))
         print('Normalizing them to all zeros ...')
     
     x_zscore=x_zscore/stds
@@ -46,7 +46,7 @@ def SingleModality_MIGP(x, k = 10 ,subj_batch = 200, n_epoch = 1):
     
     for j in range(0,n_epoch):
         
-        print('Epoch: ' + str(j+1)+'...')
+        print(('Epoch: ' + str(j+1)+'...'))
         
         d1=x.shape[0]
         
@@ -98,7 +98,7 @@ def MultiModality_MIGP(x, k = 10 ,subj_batch = 200, n_epoch = 1, zscore = False)
     
     nmod = len(x)
     for i in range(0,nmod):
-        print('Multi-Modality MIGP for Modality '+ str(i+1)+'...')
+        print(('Multi-Modality MIGP for Modality '+ str(i+1)+'...'))
         if i==0:
             if zscore==True:
                 uu = SingleModality_MIGP(nets_zscore(x[i]).T, k  ,subj_batch , n_epoch )
