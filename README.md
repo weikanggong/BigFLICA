@@ -1,15 +1,15 @@
-# BigFLICA v0.1
+# BigFLICA v0.2
 
 ## Python code for BigFLICA
 Gong, Weikang, Christian F. Beckmann, and Stephen M. Smith. "Phenotype Discovery from Population Brain Imaging." Medical Image Analysis (2021).
 https://www.sciencedirect.com/science/article/pii/S1361841521000967
 
 ## Requirements
-Python 2.7.x (recommends anaconda), spams (for dictionary learning), numpy, scipy, copy, joblib, and multiprocessing.
-System tested: Linux 
+Python 3.8+ (better with anaconda3), spams (for dictionary learning: https://pypi.org/project/spams/), numpy, scipy, copy, joblib, and multiprocessing.
+System tested: CentOS Linux 7/ macOS BigSur
 
 ## Usage
-The main function to use is the BigFLICA function in the script BigFLICA_cpu.py. Put this module in a position where your python can find it (e.g., /home/weikanggong). Then, prepare the data as .npy files (assume that we have two modalities, and they are stored as /home/weikanggong/mod1.npy, /home/weikanggong/mod2.npy). Finally, suppose the output directory is /home/weikanggong/bigflica_output. 
+The main function to use is the **BigFLICA** function in the script **BigFLICA_cpu.py**. Put this module in a position where your python can find it (e.g., /home/weikanggong). Then, prepare the data as .npy files (assume that we have two modalities, and they are stored as /home/weikanggong/mod1.npy, /home/weikanggong/mod2.npy). Finally, suppose the output directory is /home/weikanggong/bigflica_output. 
 
 Example code is something like the following:
 ```
