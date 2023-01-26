@@ -26,7 +26,7 @@ Finally, suppose the output directory is /home/weikanggong/bigflica_output.
 
 Example code for using BigFLICA is something like the following:
 ```
-import BigFLICA_cpu
+from BigFLICA import BigFLICA_cpu
 data_loc = ['/home/weikanggong/mod1.npy',
             '/home/weikanggong/mod2.npy']
 output_dir = '/home/weikanggong/bigflica_output/'
