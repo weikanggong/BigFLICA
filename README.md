@@ -50,7 +50,7 @@ BigFLICA_cpu.BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim, ncore)
 ## Outputs
 In the specified output directory,
 1. **subj_course.npy** is the subject course (H matrix in the paper), which is of the size subject-by-FLICA_component, this is the matrix used to correlate with behavioural variables, or to predict the behavioural variables.
-2. **flica_mod*_Z.npy** is the Z-score normalized spatial maps of each modality, which is of the size voxel-by-FLICA_component.
+2. **flica_mod_Z.npy** is the Z-score normalized spatial maps of each modality, which is of the size voxel-by-FLICA_component.
 3. **mod_contribution.npy** is the relative contribution of each modality to each FLICA component, which is of the size modality-by-FLICA_component. Within each FLICA component, the contribution of different modalities can be sorted based on these numbers.
 
 
