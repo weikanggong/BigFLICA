@@ -5,7 +5,7 @@ Gong, Weikang, Christian F. Beckmann, and Stephen M. Smith. "Phenotype Discovery
 https://www.sciencedirect.com/science/article/pii/S1361841521000967
 
 ## Requirements:
-Python 3.6+ (better with anaconda3), spams (for dictionary learning: https://pypi.org/project/spams/), numpy, scipy, copy, joblib, and multiprocessing.
+Python 3.6+ (better with anaconda3), spams (for dictionary learning: https://pypi.org/project/spams/), numpy, scipy, copy, joblib (https://joblib.readthedocs.io/en/latest/ for parallel processing of dictionary learning), and multiprocessing.
 
 ## OS System tested:
 CentOS Linux 7/ macOS BigSur
