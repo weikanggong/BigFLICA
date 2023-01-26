@@ -1,4 +1,4 @@
-# BigFLICA v0.2: Python 3.x support now avaiable.
+# BigFLICA v2.0: Python 3.x support now avaiable.
 
 ## Paper:
 Gong, Weikang, Christian F. Beckmann, and Stephen M. Smith. "Phenotype Discovery from Population Brain Imaging." Medical Image Analysis (2021).
