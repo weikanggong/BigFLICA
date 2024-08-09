@@ -49,16 +49,16 @@ def BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim, ncore = 1):
             cov_mat = cov_mat + np.dot(Data,Data.T)/Data.shape[1]
         print('Done...')
         
-        if nsubj<50000:
-            dd,uu=scipy.linalg.eigh(cov_mat,eigvals=(nsubj-migp_dim,nsubj-1))
-            dd=np.real(dd)
-            uu=np.real(uu)
-            indx1=np.argsort(-dd)
-            dd=dd[indx1]
-            uu=uu[:,indx1]
-            U = np.dot(uu,np.diag(dd))
-        else:
-            U = utils.SingleModality_MIGP(cov_mat, migp_dim  ,200 , 5 ) #subj-by-migp_dim
+        #if nsubj<50000:
+        dd,uu=scipy.linalg.eigh(cov_mat,eigvals=(nsubj-migp_dim,nsubj-1))
+        dd=np.real(dd)
+        uu=np.real(uu)
+        indx1=np.argsort(-dd)
+        dd=dd[indx1]
+        uu=uu[:,indx1]
+        U = np.dot(uu,np.diag(dd))
+        #else:
+        #    U = utils.SingleModality_MIGP(cov_mat, migp_dim  ,200 , 5 ) #subj-by-migp_dim
                 
         np.save(output_dir+'/MIGP' + str(migp_dim) + '/U_mMIGP.npy',U)
     else:
@@ -91,7 +91,7 @@ def BigFLICA(data_loc, nlat, output_dir, migp_dim, dicl_dim, ncore = 1):
         #load migp data, a subject-by-feature matrix
         ff = output_dir+'/DicL' + str(dicl_dim) + '/DLdata_mod'+('%02d' % (i+1))+'.npy'
         if os.path.exists(ff) == 0:
-            dd=np.load(output_dir+'/MIGP' + str(migp_dim) + '/PCAdata_mod'+('%02d' % (i+1))+'.npy') 
+            dd=utils.nets_zscore(np.load(output_dir+'/MIGP' + str(migp_dim) + '/PCAdata_mod'+('%02d' % (i+1))+'.npy')) 
             D = spams.trainDL(np.asfortranarray(dd.T,dtype ='float64'),**param) #this is dicl_dim-by-migp_dim    
             np.save(ff,D)
         else:
