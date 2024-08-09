@@ -1,11 +1,11 @@
-# BigFLICA v2.0.
+# BigFLICA v3.0.
 
 ## Paper:
 Gong, Weikang, Christian F. Beckmann, and Stephen M. Smith. "Phenotype Discovery from Population Brain Imaging." Medical Image Analysis (2021).
 https://www.sciencedirect.com/science/article/pii/S1361841521000967
 
 ## Requirements:
-Python 3.6+ (better with anaconda3), spams (for dictionary learning: https://pypi.org/project/spams/), numpy, scipy, copy, joblib (https://joblib.readthedocs.io/en/latest/ for parallel processing of dictionary learning), and multiprocessing.
+Python 3.6+ (better with anaconda3), spams (pip install spams==2.6.1), numpy (pip install numpy==1.20.3), scipy, copy, joblib (https://joblib.readthedocs.io/en/latest/ for parallel processing of dictionary learning), and multiprocessing.
 
 ## OS System tested:
 CentOS Linux 7/ macOS BigSur
